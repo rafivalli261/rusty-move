@@ -1,3 +1,5 @@
+
+
 fn main() {
     println!("Hello, world!");
 }
@@ -152,3 +154,100 @@ fn tuple() {
     println!("{:?}", data);
 }
 
+fn unit() {
+    println!("Hello");
+}
+
+#[test]
+fn test_unit() {
+    let result: () = unit();
+    println!("result = {:?}", result);
+
+    let test = ();
+    println!("test = {:?}", test);
+}
+
+#[test]
+fn array() {
+    let mut data: [i16; 7] = [1, 2, 3, 4, 5, 6, 7];
+    println!("data = {:?}", data);
+
+    let a: i16 = data[0];
+    let b: i16 = data[1];
+    println!("{} {}", a, b);
+
+    data[0] = 10;
+    data[1] = 20;
+    println!("{:?}", data);
+    let length = data.len();
+    println!("length = {}", length);
+}
+
+#[test]
+fn two_dimensional_array() {
+    let matrix: [[i32; 3]; 3] = [
+        [1,2,3],
+        [4,5,6],
+        [7,8,9]
+    ];
+    println!("{:?}", matrix);
+    println!("{:?}", matrix[0]);
+    println!("matrix[0][0] = {}", matrix[0][0]);
+    println!("matrix[1][1] = {}", matrix[1][1]);
+}
+
+#[test]
+fn constant() {
+    const PHI: f32 = 3.14;
+    const GRAVITY: f32 = 9.8;
+    println!("PHI = {}", PHI);
+    println!("GRAVITY = {}", GRAVITY);
+}
+
+const MAX_SCORE: i8 = 100;
+
+#[test]
+fn variable_scope() {
+    println!("Max Score = {}", MAX_SCORE);
+    let number = 2;
+    {
+        let id = 9;
+        println!("Halo {}", id);
+    }
+    println!("Halo {}", number);
+}
+
+#[test]
+fn stack_heap() {
+    function_a();
+    function_b();
+}
+
+fn function_a() {
+    let id = 10;
+    let country = String::from("Indonesia");
+    println!("ID = {}, Country = {}", id, country);
+}
+
+fn function_b() {
+    let number = 7;
+    let name = String::from("Rafi Valli");
+    println!("Number = {}, Name = {}", number, name);
+}
+
+#[test]
+fn string_slice() {
+    let mut name: &str = "Rafi Valli";
+    println!("Halo {}", name);
+    name = "Valli Rafi info";
+    println!("Halo {}", name);
+}
+
+
+#[test]
+fn string() {
+    let country: &str = "       Indonesia      ";
+    let trimmed = country.trim();
+    println!("Country = '{}'", country);
+    println!("Trimmed = '{}'", trimmed);
+}
