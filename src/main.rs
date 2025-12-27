@@ -251,3 +251,59 @@ fn string() {
     println!("Country = '{}'", country);
     println!("Trimmed = '{}'", trimmed);
 }
+
+#[test]
+fn string_mutation() {
+    let s1 = String::from("tic");
+    let s2 = String::from("tac");
+    let s3 = String::from("toe");
+
+    let s = format!("{s1}-{s2}-{s3}");
+    println!("s = {}", s);
+}
+
+#[test]
+fn string_type() {
+    let mut name = String::from("Rafi");
+    println!("Halo {}", name);
+
+    name.push_str(" Valli");
+    println!("Halo {}", name);
+
+    let new_name:String = name.replace("Rafi", "Renjana");
+    println!("Halo {}", new_name);
+}
+
+#[test]
+fn ownership_rules() {
+    let a = 12;
+
+    {
+        let b = 34;
+        println!("{}, {}", a, b);
+    }
+
+    println!("{}", a);
+}
+
+#[test]
+fn data_copy() {
+    let a = 10;
+    let mut b = a;
+    b += 5;
+    println!("a = {}, b = {}", a, b);
+}
+
+#[test]
+fn ownership_movement() {
+    let s1 = String::from("Hello");
+    let s2 = s1;
+    println!("{}", s2);
+}
+
+#[test]
+fn clone() {
+    let name1 = String::from("Hello");
+    let name2 = name1.clone();
+    println!("name1 = {}, name2 = {}", name1, name2);
+}
