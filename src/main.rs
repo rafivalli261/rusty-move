@@ -1,3 +1,5 @@
+use std::println;
+
 
 
 fn main() {
@@ -306,4 +308,9 @@ fn clone() {
     let name1 = String::from("Hello");
     let name2 = name1.clone();
     println!("name1 = {}, name2 = {}", name1, name2);
+}
+
+#[test]
+fn hello_world() {
+    println!("Hello World");
 }
