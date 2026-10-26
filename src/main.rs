@@ -313,4 +313,6 @@ fn clone() {
 #[test]
 fn hello_world() {
     println!("Hello World");
+    let sekolah = String::from("MTsN 2 Tulungagung");
+    println!("Sekolah = {}", sekolah);
 }
